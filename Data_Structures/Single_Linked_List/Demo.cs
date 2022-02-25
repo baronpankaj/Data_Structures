@@ -101,6 +101,17 @@ namespace Data_Structures
                         int posnodeVal = Int32.Parse(Console.ReadLine());
                         list.insertatposition(position, posnodeVal);
                         break;
+                    case 9:
+                        list.deletefirstnode();
+                        break;
+
+                    case 10:
+                        list.deletelastnode();
+                        break;
+                    case 11:
+                        Console.WriteLine("Enter the value of the node ?");
+                        list.deleteatnode(Int32.Parse(Console.ReadLine()));
+                        break;
                 }
             }
         }

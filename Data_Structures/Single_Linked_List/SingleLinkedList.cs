@@ -171,8 +171,7 @@ namespace Data_Structures
         public void insertatposition(int position, int data)
         {
             start = headNode;
-            int initialposition = 1;
-            bool found = false;
+            Node temp = new Node(data);
             start = headNode;
             if (headNode == null)
             {
@@ -180,28 +179,70 @@ namespace Data_Structures
             }
             else
             {
-                while (headNode != null)
+                for(int i = 1; i< position-1; i++)
                 {
-
-                    if (initialposition  == position)
-                    {
-                        Node temp = new Node(data);
-                        temp.next = headNode.next;
-                        headNode = temp;
-                        found = true;
-                        break;
-                    }
                     headNode = headNode.next;
-                    initialposition++;
+
                 }
-                if (found == false)
-                {
-                    Console.WriteLine("The value is not present in the list");
-                }
-                headNode = start;
+                temp.next = headNode.next;
+                headNode.next = temp;
+                
             }
             headNode = start;
 
+        }
+
+        public void deletefirstnode()
+        {
+            if (headNode == null)
+                return;
+            headNode = headNode.next;
+            
+        }
+
+        public void deletelastnode()
+        {
+            start = headNode;
+            if (headNode == null)
+                return;
+            else
+            {
+                if(headNode.next == null)
+                {
+                    headNode = null;
+                }
+                else
+                {
+                    while(headNode.next.next != null)
+                    {
+                        headNode = headNode.next;
+                        
+                    }
+                    headNode.next = null;
+                }
+            }
+
+            headNode = start;
+        }
+
+        public void deleteatnode(int data)
+        {
+            start = headNode;
+            if(headNode == null)
+                Console.WriteLine(" Empty List");
+            else
+            {
+                while(headNode.next != null)
+                {
+                    if(headNode.next.data == data)
+                    {
+                        headNode.next = headNode.next.next;
+                        break;
+                    }
+                    headNode = headNode.next;
+                }
+            }
+            headNode = start;
         }
 
     }
