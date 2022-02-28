@@ -56,7 +56,7 @@ namespace Data_Structures
 
         public void CreateList()
         {
-            Console.WriteLine("Please enter the number of Nodes");
+                Console.WriteLine("Please enter the number of Nodes");
             int nodes = Int32.Parse(Console.ReadLine());
             for(int i = 1; i<= nodes; i++)
             {
@@ -164,6 +164,7 @@ namespace Data_Structures
 
 
             }
+            
             headNode = start;
 
         }
@@ -237,13 +238,70 @@ namespace Data_Structures
                     if(headNode.next.data == data)
                     {
                         headNode.next = headNode.next.next;
-                        break;
+                        break;   
                     }
                     headNode = headNode.next;
                 }
             }
             headNode = start;
         }
+
+        public void reverse()
+        {
+//          start = headNode;
+            Node prev = new Node();
+            Node next = new Node(); ;
+            prev = null;
+            next = null;
+
+            while (headNode!=null)
+            {
+                next = headNode.next;
+                headNode.next = prev;
+                prev = headNode;
+                headNode = next;
+               
+
+            }
+            headNode = prev;
+            Print();
+         // headNode = start;
+        }
+
+        public void bubbleSort()
+        {
+            start = headNode;
+            Node q = new Node();
+            Node end = new Node();
+
+            /*   5 3 7 1 9
+             *   headnode 5  q 3
+             *  if(5> 3)  then 
+             * 
+             * 
+             * 
+             * 
+             */
+            Console.WriteLine(start.data);
+            for(end = null; end!= start.next; end = headNode)
+            {
+                Print();
+                for (headNode = start; headNode.next != end; headNode = headNode.next)
+                {
+                    q = headNode.next;
+
+                    if (headNode.data > q.data)
+                    {
+                        int temp = headNode.data;
+                        headNode.data = q.data;
+                        q.data = temp;
+                    }
+                }
+            }
+
+
+        }
+
 
     }
 }

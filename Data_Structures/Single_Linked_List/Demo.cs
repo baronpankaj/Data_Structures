@@ -48,6 +48,7 @@ namespace Data_Structures
                 Console.WriteLine("9. Delete First Node");
                 Console.WriteLine("10. Delete last Node");
                 Console.WriteLine("11. Delete any Node");
+                Console.WriteLine("12. Reverse the List");
                 Console.WriteLine(" 19. Quit");
 
                 Console.WriteLine();
@@ -111,6 +112,15 @@ namespace Data_Structures
                     case 11:
                         Console.WriteLine("Enter the value of the node ?");
                         list.deleteatnode(Int32.Parse(Console.ReadLine()));
+                        break;
+                    case 12:
+                        list.reverse();
+                        Console.WriteLine();
+                        Console.WriteLine("Reverting list Back to Original State");
+                        list.reverse();
+                        break;
+                    case 13:
+                        list.bubbleSort();
                         break;
                 }
             }

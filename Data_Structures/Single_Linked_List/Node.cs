@@ -12,7 +12,11 @@ namespace Data_Structures
         {
             public int data;
             public Node next;
-
+            
+            public Node()
+            {
+                next = null;
+            }
             public Node(int i)
             {
                 data = i;
